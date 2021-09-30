@@ -6,3 +6,6 @@ __pycache__/
 *.py[cod]
 node_modules/
 .github/
+.github/
+env.py
+__pycache__/
