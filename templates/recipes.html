@@ -24,7 +24,7 @@
         <div class="collapsible-body">
             <strong>{{ recipe.category_name }}</strong>
             <p>{{ recipe.recipe_description }}</p>
-            <p></p>
+            <p><em>by: {{ task.created_by }}</em></p>
         </div>
     </li>
     {% endfor %}
