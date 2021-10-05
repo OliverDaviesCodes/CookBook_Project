@@ -12,20 +12,22 @@
 {% endfor %}
 
 <ul class="collapsible">
+    {% for recipe in recipes %}
     <li>
-        <div class="collapsible-header white-text light-blue darken-4 text-shadow"><i
-                class="fas fa-caret-down"></i>First</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+        <div class="collapsible-header white-text light-blue darken-4 text-shadow"><i class="fas fa-caret-down"></i>
+            <strong>{{ recipe.recipe_name }}</strong> : {{ recipe.rating }}
+            {% if recipe.is_vegetarian == "on" %}
+            <i class="fas fa-leafy-green light-blue-text text-lighten-2 tooltipped" data-position="bottom"
+                data-tooltip="Vegetarian!"></i>
+            {% endif %}
+        </div>
+        <div class="collapsible-body">
+            <strong>{{ recipe.category_name }}</strong>
+            <p>{{ recipe.recipe_description }}</p>
+            <p>{{ recipe.is_vegetarian }}</p>
+            <p></p>
+        </div>
     </li>
-    <li>
-        <div class="collapsible-header white-text light-blue darken-4 text-shadow"><i
-                class="fas fa-caret-down"></i>Second</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    <li>
-        <div class="collapsible-header white-text light-blue darken-4 text-shadow"><i
-                class="fas fa-caret-down"></i>Third</div>
-        <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
+    {% endfor %}
 </ul>
 {% endblock %}
