@@ -110,9 +110,9 @@ def add_recipe():
         }
         mongo.db.tasks.insert_one(recipe)
         flash("Recipe Successfully Added")
-        return redirect(url_for("get_recipes"))
+        return redirect(url_for("get_recipe"))
     categories = mongo.db.categories.find().sort("category_name", 1)
-    return render_template("add_recipe.html", categories=categories)
+    return render_template("add_recipes.html", categories=categories)
 
 
 # This tells the app how and where to run the application

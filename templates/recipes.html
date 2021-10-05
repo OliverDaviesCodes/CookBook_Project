@@ -1,15 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h2>im extending the base template</h2>
-
-{% for recipe in recipes %}
-{{ recipe.recipe_name }} <br>
-{{ recipe.category_name }}<br>
-{{ recipe.recipe_description }}<br>
-{{ recipe.is_vegetarian }}<br>
-{{ recipe.rating }}<br>
-{% endfor %}
+<h3 class="light-blue-text text-darken-4 center-align">All Recipes</h3>
 
 <ul class="collapsible">
     {% for recipe in recipes %}
@@ -24,7 +16,7 @@
         <div class="collapsible-body">
             <strong>{{ recipe.category_name }}</strong>
             <p>{{ recipe.recipe_description }}</p>
-            <p><em>by: {{ task.created_by }}</em></p>
+            <p><em>by: {{ recipe.created_by }}</em></p>
         </div>
     </li>
     {% endfor %}
