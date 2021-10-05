@@ -17,14 +17,13 @@
         <div class="collapsible-header white-text light-blue darken-4 text-shadow"><i class="fas fa-caret-down"></i>
             <strong>{{ recipe.recipe_name }}</strong> : {{ recipe.rating }}
             {% if recipe.is_vegetarian == "on" %}
-            <i class="fas fa-leafy-green light-blue-text text-lighten-2 tooltipped" data-position="bottom"
+            <i class="fa-solid fa-carrot light-blue-text text-lighten-2 tooltipped" data-position="bottom"
                 data-tooltip="Vegetarian!"></i>
             {% endif %}
         </div>
         <div class="collapsible-body">
             <strong>{{ recipe.category_name }}</strong>
             <p>{{ recipe.recipe_description }}</p>
-            <p>{{ recipe.is_vegetarian }}</p>
             <p></p>
         </div>
     </li>
