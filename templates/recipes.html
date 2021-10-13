@@ -10,7 +10,7 @@
             <div class="col s3">
                 <i class="fas fa-caret-down"></i>
                 <a href="" class="green accent-4 btn-small">Done</a>
-                <a href="" class="green accent-4 btn-small">Edit</a>
+                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="green accent-4 btn-small">Edit</a>
             </div>
             <div class="col s9">
                 <strong>{{ recipe.recipe_name }}</strong> : {{ recipe.rating }}
