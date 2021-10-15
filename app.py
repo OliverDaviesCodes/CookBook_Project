@@ -141,6 +141,12 @@ def delete_recipe(recipe_id):
     flash("Recipe Successfully Deleted")
     return redirect(url_for("get_recipes"))
 
+
+@app.route("/get_categories")
+def get_categories():
+    categories = list(mongo.db.categories.find().sort("category.name", 1))
+    return render_template("categories.html", categories=categories)
+
 # This tells the app how and where to run the application
 
 
