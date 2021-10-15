@@ -134,6 +134,13 @@ def edit_recipe(recipe_id):
     return render_template(
         "edit_recipes.html", recipe=recipe, categories=categories)
 
+
+@app.route("/delete_recipe/<recipe_id>")
+def delete_recipe(recipe_id):
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    flash("Recipe Successfully Deleted")
+    return redirect(url_for("get_recipes"))
+
 # This tells the app how and where to run the application
 
 
