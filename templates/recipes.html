@@ -25,10 +25,35 @@
 </div>
 
 {% if recipes|length > 0 %}
-<ul class="collapsible">
-    {% for recipe in recipes %}
-    <li>
-        <div class="collapsible-header white-text light-blue darken-4 text-shadow">
+<div class="container recipe_container flex">
+    <div class="row">
+        {% for recipe in recipes %}
+
+        <div class="card col s12 m4" style="width: 20rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ recipe.recipe_name }}
+                    {% if recipe.is_vegetarian == "on" %}
+                    <i class="fa-solid fa-carrot green-text text-lighten-2 tooltipped" data-position="bottom"
+                        data-tooltip="Vegetarian!"></i>
+                    {% endif %}
+                </h5>
+                <label for="card-description">Recipe Description:</label>
+                <p class="card-text" id="card-description">{{ recipe.recipe_description }}</p>
+
+                <a href="#" class="btn btn-primary">Get Cooking with
+                    us!</a>
+
+                {% if session.user|lower == recipe.created_by|lower %}
+                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="green accent-4 btn-small">Done</a>
+                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="green accent-4 btn-small">Edit</a>
+                {% endif %}
+
+            </div>
+        </div>
+
+        <!--
+        <div class="collapsible-header white-text light-blue darken-4 text-shadow col s12 m4">
             <div class="col s3">
                 <i class="fas fa-caret-down"></i>
                 {% if session.user|lower == recipe.created_by|lower %}
@@ -46,15 +71,20 @@
         </div>
         <div class="collapsible-body">
             <strong>{{ recipe.category_name }}</strong>
-            <span>{{ recipe.recipe_time }}</span>
-            <span>{{ recipe.portions }}</span>
+            <div>
+                <label for="recipe-time">Time to make the recipe:</label>
+                <span id="recipe-time">{{ recipe.recipe_time }} minutes.</span>
+                <label for="portion">Number of portions made:</label>
+                <span id="portion">{{ recipe.portions }}</span>
+            </div>
             <p>{{ recipe.recipe_description }}</p>
             <p>{{ recipe.recipe_instructions }}</p>
             <p><em>by: {{ recipe.created_by }}</em></p>
         </div>
-    </li>
-    {% endfor %}
-</ul>
+        -->
+        {% endfor %}
+    </div>
+</div>
 {% else %}
 <h3 class="red-text text-darken-4 center-align">No results found</h3>
 {% endif %}
