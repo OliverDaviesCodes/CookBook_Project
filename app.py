@@ -108,15 +108,18 @@ def add_recipe():
     if request.method == "POST":
         is_vegetarian = "on" if request.form.get("is_vegetarian") else "off"
         recipe = {
-            "category_name": request.form.get("category_name"),
             "recipe_name": request.form.get("recipe_name"),
+            "category_name": request.form.get("category_name"),
+            "recipe_time": request.form.get("recipe_time"),
+            "portions": request.form.get("portions"),
             "recipe_description": request.form.get("recipe_description"),
+            "recipe_instructions": request.form.get("recipe_instructions"),
             "is_vegetarian": is_vegetarian,
             "created_by": session["user"]
         }
-        mongo.db.tasks.insert_one(recipe)
+        mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added")
-        return redirect(url_for("get_recipe"))
+        return redirect(url_for("get_recipes"))
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_recipes.html", categories=categories)
 
@@ -127,9 +130,12 @@ def edit_recipe(recipe_id):
     if request.method == "POST":
         is_vegetarian = "on" if request.form.get("is_vegetarian") else "off"
         submit = {
-            "category_name": request.form.get("category_name"),
             "recipe_name": request.form.get("recipe_name"),
+            "category_name": request.form.get("category_name"),
+            "recipe_time": request.form.get("recipe_time"),
+            "portions": request.form.get("portions"),
             "recipe_description": request.form.get("recipe_description"),
+            "recipe_instructions": request.form.get("recipe_instructions"),
             "is_vegetarian": is_vegetarian,
             "created_by": session["user"]
         }
