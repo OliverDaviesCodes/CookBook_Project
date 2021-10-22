@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css') }}" type="text/css">
     {% block styles %}
     {% endblock %}
-    <title>Cook Book</title>
+    <title>Just a Taste</title>
 </head>
 
 <body>
@@ -23,7 +23,8 @@
         <!--Top navbar-->
         <nav class="nav-extended text-shadow blue-grey">
             <div class="nav-wrapper">
-                <a href="{{ url_for('get_recipes') }}" class="brand-logo">Cook Book</a>
+                <img src="/static/media/kitchen-logo.png" alt="Image of a logo" class="logo">
+                <a href="{{ url_for('get_recipes') }}" class="brand-logo" id="taste">Just a Taste</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
@@ -45,7 +46,7 @@
         <!--mobile sidenav-->
         <ul class="sidenav" id="mobile-demo">
             <li>
-                <h4 class="center-align blue-grey-text text-darken-4">Cook Book</h4>
+                <h4 class="center-align blue-grey-text text-darken-4">Just a Taste</h4>
             </li>
             <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
             {% if session.user %}
@@ -77,7 +78,6 @@
 
     <main class="container">
         {% block content %}
-        <img src="/workspace/CookBook_Project/static/media/kitchen.jpg" alt="Image of a kitchen">
         {% endblock %}
     </main>
 

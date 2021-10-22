@@ -16,9 +16,55 @@
 
 }
 
-.container {
+main.container {
+    margin: none;
+    max-width: none;
+    background-color: #607d8b;
     width: 100%;
 }
+
+/*Navbar*/
+nav .brand-logo {
+    color: #f2e8e2;
+}
+
+i.fa-bars {
+    margin-top: 15px;
+    color: #f2e8e2;
+}
+
+ul.right {
+    margin-top: 15px;
+    color: #f2e8e2;
+    margin-right: 10px;
+}
+
+@media all and (max-width: 360px) {
+    a#taste {
+        display: none;
+    }
+}
+
+.logo {
+    height: 75px;
+    width: 100px;
+    size: 25px;
+}
+
+#taste {
+    left: 50%;
+    margin-top: 20px;
+
+}
+
+/*text*/
+.cream-text {
+    color: #f2e8e2;
+}
+
+/*recipes.html*/
+/*recipes.html*/
+/*recipes.html*/
 
 #kitchen {
     object-position: 100% 80%;
@@ -27,4 +73,16 @@
     width: 100%;
     margin: 0px;
 
+}
+
+.bg-image {
+    background-image: url('/static/media/kitchen-background.jpg');
+    background-position: cover;
+    height: 100%;
+}
+
+.recipes-bg {
+    background-color: #607d8b;
+    width: 100%;
+    margin: 0 auto;
 }
