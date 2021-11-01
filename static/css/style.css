@@ -16,11 +16,16 @@
 
 }
 
+.container {
+    max-width: none;
+}
+
 main.container {
     margin: none;
     max-width: none;
     background-color: #607d8b;
     width: 100%;
+    height: 100%;
 }
 
 /*Navbar*/
@@ -29,7 +34,7 @@ nav .brand-logo {
 }
 
 i.fa-bars {
-    margin-top: 15px;
+    margin-top: 20px;
     color: #f2e8e2;
 }
 
@@ -62,9 +67,21 @@ ul.right {
     color: #f2e8e2;
 }
 
+/*search bar*/
+.search {
+    background-color: #577b9f;
+}
+
+.search-reset {
+    background-color: #bd5229f0;
+}
+
 /*recipes.html*/
-/*recipes.html*/
-/*recipes.html*/
+.card-panel {
+    width: 75%;
+    height: 80%;
+    margin: 0 auto;
+}
 
 #kitchen {
     object-position: 100% 80%;
@@ -79,10 +96,36 @@ ul.right {
     background-image: url('/static/media/kitchen-background.jpg');
     background-position: cover;
     height: 100%;
+    width: 100%;
+    padding-bottom: 30px;
 }
 
 .recipes-bg {
     background-color: #607d8b;
     width: 100%;
     margin: 0 auto;
+}
+
+/*Cards*/
+/*Footer*/
+#footer {
+    margin: 0px 0px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.social {
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.li-inline {
+    display: inline;
+}
+
+.social-link {
+    font-size: x-large;
+    color: #f2e8e2;
 }
