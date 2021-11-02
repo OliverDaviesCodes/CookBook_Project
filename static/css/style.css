@@ -28,6 +28,10 @@ main.container {
     height: 100%;
 }
 
+.row {
+    margin-bottom: 0px;
+}
+
 /*Navbar*/
 nav .brand-logo {
     color: #f2e8e2;
@@ -107,6 +111,36 @@ ul.right {
 }
 
 /*Cards*/
+.recipe_container {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.card-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.card {
+    background-color: #f2e8e2;
+    border-radius: 10px;
+    margin: 15px;
+    height: 400px;
+    width: 175px;
+}
+
+@media all and (max-width: 695px) {
+    .card {
+        margin: 10px auto;
+        left: auto;
+        right: auto;
+    }
+}
+
 /*Footer*/
 #footer {
     margin: 0px 0px;

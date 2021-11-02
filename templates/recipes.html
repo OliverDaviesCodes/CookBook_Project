@@ -27,7 +27,7 @@
 
     {% if recipes|length > 0 %}
     <div class="container recipe_container flex">
-        <div class="row">
+        <div class="row card-container">
             {% for recipe in recipes %}
 
             <div class="card col s12 m4" style="width: 20rem;">
@@ -42,7 +42,8 @@
                     <label for="card-description">Recipe Description:</label>
                     <p class="card-text" id="card-description">{{ recipe.recipe_description }}</p>
 
-                    <a href="#" class="btn btn-primary">Get Cooking with
+                    <a href="#" class="btn btn-primary">Get Cooking
+                        with
                         us!</a>
 
                     {% if session.user|lower == recipe.created_by|lower %}
