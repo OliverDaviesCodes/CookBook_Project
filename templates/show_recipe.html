@@ -24,44 +24,40 @@
     </form>
 </div>
 
+{% if recipes|length > 0 %}
+<div class="container recipe_container flex">
+    <div class="row card-container">
+        {% for recipe in recipes %}
 
-{% for recipe in recipes %}
+        <div class="card col s12 m4" style="width: 20rem;">
+            <img src="..." class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">{{ recipe.recipe_name }}
+                    {% if recipe.is_vegetarian == "on" %}
+                    <i class="fa-solid fa-carrot green-text text-lighten-2 tooltipped" data-position="bottom"
+                        data-tooltip="Vegetarian!"></i>
+                    {% endif %}
+                </h5>
+                <label for="card-description">Recipe Description:</label>
+                <p class="card-text" id="card-description">{{ recipe.recipe_description }}</p>
 
-<div class="card col s12">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">{{ recipe.recipe_name }}
-            {% if recipe.is_vegetarian == "on" %}
-            <i class="fa-solid fa-carrot green-text text-lighten-2 tooltipped" data-position="bottom"
-                data-tooltip="Vegetarian!"></i>
-            {% endif %}
-        </h5>
+                <a href="{{ url_for('get_recipe', recipe_id=recipe._id) }}" class="btn btn-primary">Get Cooking
+                    with
+                    us!</a>
 
-        <label for="recipe-time">Recipe Time:</label>
-        <p class="card-text" id="recipe">{{ recipe.recipe_time }}</p>
+                {% if session.user|lower == recipe.created_by|lower %}
+                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="green accent-4 btn-small">Done</a>
+                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="green accent-4 btn-small">Edit</a>
+                {% endif %}
 
-        <label for="num-portions">Portions made:</label>
-        <p class="card-text" id="num-portions">{{ recipe.portions }}</p>
-
-        <label for="card-description">Recipe Description:</label>
-        <p class="card-text" id="card-description">{{ recipe.recipe_description }}</p>
-
-        <label for="card-instructions">Recipe Instructions:</label>
-        <p class="card-text" id="card-instructions">{{ recipe.recipe_instructions }}</p>
-
-        <a href="#" class="btn btn-primary">Get Cooking with us!</a>
-
-        {% if session.user|lower == recipe.created_by|lower %}
-        <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="green accent-4 btn-small">Done</a>
-        <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="green accent-4 btn-small">Edit</a>
-        {% endif %}
-
+            </div>
+        </div>
+        {% endfor %}
     </div>
 </div>
-
-
-{% endfor %}
-
+</div>
+{% else %}
 <h3 class="red-text text-darken-4 center-align">No results found</h3>
+
 {% endif %}
 {% endblock %}

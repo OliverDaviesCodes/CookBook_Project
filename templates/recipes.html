@@ -42,7 +42,7 @@
                     <label for="card-description">Recipe Description:</label>
                     <p class="card-text" id="card-description">{{ recipe.recipe_description }}</p>
 
-                    <a href="#" class="btn btn-primary">Get Cooking
+                    <a href="{{ url_for('get_recipe', recipe_id=recipe._id) }}" class="btn btn-primary">Get Cooking
                         with
                         us!</a>
 

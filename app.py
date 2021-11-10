@@ -8,6 +8,11 @@ from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
+from werkzeug.utils import secure_filename
+
+UPLOAD_FOLDER = '/static/media/uploads'
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
+
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -17,15 +22,42 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+def is_logged_in():
+    """
+    This function determines if the user is logged in
+    """
+    return session.get("user")
+
+
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
+    """
+    Returns all recipes needed on recipes.html
+    """
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
 
 
+@app.route("/recipe/<recipe_id>", methods=["GET"])
+def get_recipe(recipe_id):
+    """
+    Returns a single recipe
+    """
+    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    return render_template("show_recipe.html", recipe=recipe)
+
+
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    """
+    This is the search function on the search bar
+    """
     query = request.form.get("query")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": query}}))
     return render_template("recipes.html", recipes=recipes)
@@ -33,6 +65,9 @@ def search():
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    This generates the register functionality to the database
+    """
     if request.method == "POST":
         # check if username exists in the db
         existing_user = mongo.db.users.find_one(
@@ -58,6 +93,9 @@ def register():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    This generates the login functionality to the database
+    """
     if request.method == "POST":
         # check to see if username exists
         existing_user = mongo.db.users.find_one(
@@ -83,29 +121,59 @@ def login():
     return render_template("login.html")
 
 
-@app.route("/profile/<username>", methods=["GET", "POST"])
-def profile(username):
-    # retrieves the session users username from the database
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
-    if session["user"]:
-        return render_template("profile.html", username=username)
-
+@app.route("/profile", methods=["GET"])
+def profile():
+    """
+    This generates the users profile
+    """
+    if is_logged_in():
+        # retrieves the session users username from the database
+        user = mongo.db.users.find_one({"username": session["user"]})
+        recipes = mongo.db.recipes.find({"created_by": session["user"]})
+        return render_template("profile.html", user=user, recipes=recipes)
     return redirect(url_for("login"))
 
 
 @app.route("/logout")
 def logout():
-    # remove user from the session cookies
-    flash("You have been logged out")
-    session.pop("user")
+    """
+     remove user from the session cookies
+    """
+    if is_logged_in():
+        # remove user from the session cookies
+        flash("You have been logged out")
+        session.pop("user")
     return redirect(url_for("login"))
 
 
 @app.route("/add_recipe", methods=["GET", "POST"])
 def add_recipe():
+    """
+    This is the recipe generation method
+    """
     if request.method == "POST":
+        image_path = ""
+
+        # Check if the image exists in the request.POST
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect("get_recipes")
+
+        file = request.files['file']
+        # if the user does not select file, browser will also
+        # submit an empty part without the filename
+        # check if the post request has the file part
+        if not file.filename:
+            flash('No selected file')
+            return redirect("get_recipes")
+
+        # Get the local location of the image e.g. "./media/somerecipe.png"
+        # Save "image_path": "./media/somerecipe.png" in with the recipe
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            image_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(image_path)
+
         is_vegetarian = "on" if request.form.get("is_vegetarian") else "off"
         recipe = {
             "recipe_name": request.form.get("recipe_name"),
@@ -115,7 +183,8 @@ def add_recipe():
             "recipe_description": request.form.get("recipe_description"),
             "recipe_instructions": request.form.get("recipe_instructions"),
             "is_vegetarian": is_vegetarian,
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "image_path": image_path,
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added")
@@ -126,7 +195,9 @@ def add_recipe():
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 def edit_recipe(recipe_id):
-
+    """
+    This is the edit recipe functionality
+    """
     if request.method == "POST":
         is_vegetarian = "on" if request.form.get("is_vegetarian") else "off"
         submit = {
@@ -150,6 +221,9 @@ def edit_recipe(recipe_id):
 
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
+    """
+    This is the delete recipe functionality
+    """
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("Recipe Successfully Deleted")
     return redirect(url_for("get_recipes"))
@@ -157,12 +231,18 @@ def delete_recipe(recipe_id):
 
 @app.route("/get_categories")
 def get_categories():
+    """
+    This is the categories functionality for admins
+    """
     categories = list(mongo.db.categories.find().sort("category.name", 1))
     return render_template("categories.html", categories=categories)
 
 
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
+    """
+    This is the adding categories function for administration
+    """
     if request.method == "POST":
         category = {
             "category_name": request.form.get("category_name")
@@ -176,6 +256,9 @@ def add_category():
 
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
+    """
+    This is the editing categories function for administration
+    """
     if request.method == "POST":
         submit = {
             "category_name": request.form.get("category_name")
@@ -189,6 +272,9 @@ def edit_category(category_id):
 
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
+    """
+    This is the delete categories function for administration
+    """
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
     return redirect(url_for("get_categories"))
