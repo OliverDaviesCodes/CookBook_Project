@@ -1,4 +1,6 @@
 import os
+import cloudinary
+import cloudinary.uploader
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
@@ -10,7 +12,7 @@ if os.path.exists("env.py"):
 
 from werkzeug.utils import secure_filename
 
-UPLOAD_FOLDER = '/static/media/uploads'
+UPLOAD_FOLDER = '/static/media'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 app = Flask(__name__)
@@ -18,6 +20,13 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+cloudinary.config(
+    cloud_name="CLOUDINARY CLOUD NAME",
+    api_key="CLOUDINARY API KEY",
+    api_secret="CLOUDINARY API SECRET"
+)
 
 mongo = PyMongo(app)
 

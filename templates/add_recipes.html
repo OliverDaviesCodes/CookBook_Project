@@ -4,7 +4,7 @@
     <h3 class="light-blue-text text-darken-4 center-align">Add Recipe</h3>
 
     <div class="row card-panel grey lighten-5">
-        <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}">
+        <form class="col s12" method="POST" action="{{ url_for('add_recipe') }}" enctype="multipart/form-data">
             <!--Recipe name-->
             <div class="row">
                 <div class="input-field col s12">
@@ -54,9 +54,17 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-                    <textarea id="recipe_description" name="recipe_description" minlength="5" maxlength="1000"
+                    <textarea id="recipe_instructions" name="recipe_instructions" minlength="5" maxlength="1000"
                         class="materialize-textarea validate" required></textarea>
                     <label for="recipe_description">Recipe Instructions</label>
+                </div>
+            </div>
+            <!--Recipe Image Upload-->
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-camera-retro prefix light-blue-text text-darken-4"></i>
+                    <input type="file" name="file">
+                    <label for="file">Upload your Image of your Delicious Recipe here.</label>
                 </div>
             </div>
             <!--Is vegetarian-->
