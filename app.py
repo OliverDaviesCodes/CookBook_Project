@@ -10,7 +10,6 @@ from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
 
-from werkzeug.utils import secure_filename
 
 UPLOAD_FOLDER = '/static/media'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
@@ -23,17 +22,12 @@ app.secret_key = os.environ.get("SECRET_KEY")
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 cloudinary.config(
-    cloud_name="CLOUDINARY CLOUD NAME",
-    api_key="CLOUDINARY API KEY",
-    api_secret="CLOUDINARY API SECRET"
+    cloud_name=os.environ.get("CLOUD_NAME"),
+    api_key=os.environ.get("API_KEY"),
+    api_secret=os.environ.get("API_SECRET")
 )
 
 mongo = PyMongo(app)
-
-
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 def is_logged_in():
@@ -161,27 +155,10 @@ def add_recipe():
     This is the recipe generation method
     """
     if request.method == "POST":
-        image_path = ""
-
-        # Check if the image exists in the request.POST
-        if 'file' not in request.files:
-            flash('No file part')
-            return redirect("get_recipes")
-
-        file = request.files['file']
-        # if the user does not select file, browser will also
-        # submit an empty part without the filename
-        # check if the post request has the file part
-        if not file.filename:
-            flash('No selected file')
-            return redirect("get_recipes")
-
-        # Get the local location of the image e.g. "./media/somerecipe.png"
-        # Save "image_path": "./media/somerecipe.png" in with the recipe
-        if file and allowed_file(file.filename):
-            filename = secure_filename(file.filename)
-            image_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-            file.save(image_path)
+        image = request.files["image"]
+        if image and image.filename.split(
+                                        ".")[-1].lower() in ALLOWED_EXTENSIONS:
+            upload_result = cloudinary.uploader.upload(image)
 
         is_vegetarian = "on" if request.form.get("is_vegetarian") else "off"
         recipe = {
@@ -193,7 +170,7 @@ def add_recipe():
             "recipe_instructions": request.form.get("recipe_instructions"),
             "is_vegetarian": is_vegetarian,
             "created_by": session["user"],
-            "image_path": image_path,
+            "url": upload_result["secure_url"],
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Recipe Successfully Added")

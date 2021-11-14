@@ -40,7 +40,7 @@
             <div class="row">
                 <div class="range-field">
                     <label for="cooking-time">How long does your recipe take?</label>
-                    <input type="range" id="cooking-time" min="5" max="180" />
+                    <input type="range" id="recipe_time" min="5" max="180" />
                 </div>
             </div>
             <!-- Portions served -->
@@ -54,7 +54,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-                    <textarea id="recipe_instructions" name="recipe_instructions" minlength="5" maxlength="1000"
+                    <textarea id="recipe_instructions" name="recipe_instructions" minlength="5" maxlength="3000"
                         class="materialize-textarea validate" required></textarea>
                     <label for="recipe_description">Recipe Instructions</label>
                 </div>
@@ -63,8 +63,8 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-camera-retro prefix light-blue-text text-darken-4"></i>
-                    <input type="file" name="file">
-                    <label for="file">Upload your Image of your Delicious Recipe here.</label>
+                    <label for="image">Upload your Image of your Delicious Recipe here.</label>
+                    <input type="file" name="image" accept="image/*" id="image" required>
                 </div>
             </div>
             <!--Is vegetarian-->

@@ -36,8 +36,8 @@
             <!--Recipe time-->
             <div class="row">
                 <div class="range-field">
-                    <label for="cooking-time">How long does your recipe take?</label>
-                    <input type="range" id="cooking-time" min="5" max="180" value="{{ recipe.recipe_time }}" required />
+                    <label for="recipe_time">How long does your recipe take?</label>
+                    <input type="range" id="recipe_time" min="5" max="180" value="{{ recipe.recipe_time }}" required />
                 </div>
             </div>
             <!--Portions-->
@@ -51,7 +51,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-                    <textarea id="recipe_instructions" name="recipe_instructions" minlength="5" maxlength="200"
+                    <textarea id="recipe_instructions" name="recipe_instructions" minlength="5" maxlength="3000"
                         class="materialize-textarea validate" required>
                     {{- recipe.recipe_instructions -}}
                 </textarea>

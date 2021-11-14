@@ -133,7 +133,7 @@ ul.right {
     background-color: #f2e8e2;
     border-radius: 10px;
     margin: 15px;
-    height: 400px;
+    height: 105%;
     width: 175px;
 }
 
@@ -143,6 +143,13 @@ ul.right {
         left: auto;
         right: auto;
     }
+}
+
+.card-img-top {
+    height: 250px;
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 10px;
 }
 
 /*Footer*/
