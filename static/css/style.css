@@ -22,6 +22,7 @@ body {
 
 .container {
     max-width: none;
+
 }
 
 main.container {
@@ -29,7 +30,6 @@ main.container {
     max-width: none;
     background-color: #607d8b;
     width: 100%;
-    height: 100%;
 }
 
 .row {
@@ -87,7 +87,7 @@ ul.right {
 /*recipes.html*/
 .card-panel {
     width: 75%;
-    height: 80%;
+    height: 90%;
     margin: 0 auto;
 }
 
@@ -102,8 +102,8 @@ ul.right {
 
 .bg-image {
     background-image: url('/static/media/kitchen-background.jpg');
-    background-position: cover;
-    height: 100%;
+    background-size: cover;
+    height: 80vh;
     width: 100%;
     padding-bottom: 30px;
 }
@@ -115,10 +115,15 @@ ul.right {
 }
 
 /*Cards*/
+.fa-seedling {
+    color: #749b4a !important;
+}
+
 .recipe_container {
     align-items: center;
     display: flex;
     justify-content: space-between;
+    height: 100%;
 }
 
 .card-container {
@@ -133,8 +138,10 @@ ul.right {
     background-color: #f2e8e2;
     border-radius: 10px;
     margin: 15px;
-    height: 105%;
-    width: 175px;
+    height: 450px;
+    width: 270px !important;
+    background-size: contain;
+    padding-bottom: 5px !important;
 }
 
 @media all and (max-width: 695px) {
@@ -142,14 +149,58 @@ ul.right {
         margin: 10px auto;
         left: auto;
         right: auto;
+        width: 250px;
     }
+
 }
 
 .card-img-top {
-    height: 250px;
+    height: 225px;
     width: 100%;
     margin-top: 5px;
     border-radius: 10px;
+}
+
+.card-body {
+    height: 40%;
+    width: 100%;
+}
+
+.orange {
+    color: #bd5229f0;
+    margin: 5px;
+}
+
+.fa-trash-alt {
+    color: #f2e8e2;
+}
+
+.grey-blue {
+    background-color: #577b9f;
+}
+
+.card-title {
+    text-decoration: underline;
+    font-weight: 400 !important;
+}
+
+.card-description {
+    text-decoration: underline;
+}
+
+/*Qoute*/
+.qoute-container {
+    background-color: #607d8b;
+    margin: 0 auto;
+    display: flex;
+    color: #f2e8e2;
+}
+
+.qoute {
+    padding: 25px;
+    justify-content: center;
+    font-family: 'Petemoss', cursive;
+    font-size: 45px;
 }
 
 /*Footer*/
@@ -172,4 +223,8 @@ ul.right {
 .social-link {
     font-size: x-large;
     color: #f2e8e2;
+}
+
+.social-link:hover {
+    background-color: #f2e8e2;
 }

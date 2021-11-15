@@ -35,12 +35,12 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ recipe.recipe_name }}
                         {% if recipe.is_vegetarian == "on" %}
-                        <i class="fa-solid fa-carrot green-text text-lighten-2 tooltipped" data-position="bottom"
+                        <i class="fas fa-seedling text-lighten-2 tooltipped" data-position="bottom"
                             data-tooltip="Vegetarian!"></i>
                         {% endif %}
                     </h5>
-                    <label for="card-description">Recipe Description:</label> <span>{{ recipe.recipe_time }} <i
-                            class="far fa-clock"></i></span> <span>{{ recipe.portions }} <i
+                    <label for="card-description" class="card-description">Recipe Description:</label>
+                    <span>{{ recipe.recipe_time }} <i class="far fa-clock"></i></span> <span>{{ recipe.portions }} <i
                             class="fas fa-child"></i></span>
                     <p class="card-text" id="card-description">{{ recipe.recipe_description }}</p>
 
@@ -49,48 +49,22 @@
                         us!</a>
 
                     {% if session.user|lower == recipe.created_by|lower %}
-                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
-                        class="green accent-4 btn-small">Done</a>
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="orange accent-4 btn-small"><i
+                            class="fas fa-trash-alt text-shadow"></i></a>
                     <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
-                        class="green accent-4 btn-small">Edit</a>
+                        class="grey-blue accent-4 btn-small text-shadow">Edit</a>
                     {% endif %}
 
                 </div>
             </div>
 
-            <!--
-        <div class="collapsible-header white-text light-blue darken-4 text-shadow col s12 m4">
-            <div class="col s3">
-                <i class="fas fa-caret-down"></i>
-                {% if session.user|lower == recipe.created_by|lower %}
-                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="green accent-4 btn-small">Done</a>
-                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="green accent-4 btn-small">Edit</a>
-                {% endif %}
-            </div>
-            <div class="col s9">
-                <strong>{{ recipe.recipe_name }}</strong> : {{ recipe.rating }}
-                {% if recipe.is_vegetarian == "on" %}
-                <i class="fa-solid fa-carrot light-blue-text text-lighten-2 tooltipped" data-position="bottom"
-                    data-tooltip="Vegetarian!"></i>
-                {% endif %}
-            </div>
-        </div>
-        <div class="collapsible-body">
-            <strong>{{ recipe.category_name }}</strong>
-            <div>
-                <label for="recipe-time">Time to make the recipe:</label>
-                <span id="recipe-time">{{ recipe.recipe_time }} minutes.</span>
-                <label for="portion">Number of portions made:</label>
-                <span id="portion">{{ recipe.portions }}</span>
-            </div>
-            <p>{{ recipe.recipe_description }}</p>
-            <p>{{ recipe.recipe_instructions }}</p>
-            <p><em>by: {{ recipe.created_by }}</em></p>
-        </div>
-        -->
             {% endfor %}
         </div>
     </div>
+</div>
+<div class="qoute-container recipes-bg">
+    <p class="qoute">“A recipe has no soul. You as the cook must bring soul to the recipe.”
+        – Thomas Keller</p>
 </div>
 {% else %}
 <h3 class="red-text text-darken-4 center-align">No results found</h3>

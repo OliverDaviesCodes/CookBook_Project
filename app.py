@@ -185,6 +185,7 @@ def edit_recipe(recipe_id):
     This is the edit recipe functionality
     """
     if request.method == "POST":
+
         is_vegetarian = "on" if request.form.get("is_vegetarian") else "off"
         submit = {
             "recipe_name": request.form.get("recipe_name"),
@@ -194,9 +195,10 @@ def edit_recipe(recipe_id):
             "recipe_description": request.form.get("recipe_description"),
             "recipe_instructions": request.form.get("recipe_instructions"),
             "is_vegetarian": is_vegetarian,
-            "created_by": session["user"]
+            "created_by": session["user"],
+            "url": request.form.get ("url"),
         }
-        mongo.db.tasks.update({"_id": ObjectId(recipe_id)}, submit)
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
         flash("Recipe Successfully Updated")
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})

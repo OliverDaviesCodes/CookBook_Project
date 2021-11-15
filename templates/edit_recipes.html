@@ -37,14 +37,16 @@
             <div class="row">
                 <div class="range-field">
                     <label for="recipe_time">How long does your recipe take?</label>
-                    <input type="range" id="recipe_time" min="5" max="180" value="{{ recipe.recipe_time }}" required />
+                    <input type="range" name="recipe_time" id="recipe_time" min="5" max="180"
+                        value="{{ recipe.recipe_time }}" required />
                 </div>
             </div>
             <!--Portions-->
             <div class="row">
                 <div class="range-field">
                     <label for="portions">How many people can you feed?</label>
-                    <input type="range" id="portions" min="1" max="12" value="{{ recipe.portions }}" required />
+                    <input type="range" name="portions" id="portions" min="1" max="12" value="{{ recipe.portions }}"
+                        required />
                 </div>
             </div>
             <!--Recipe Instructions-->
@@ -73,7 +75,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-camera-retro prefix light-blue-text text-darken-4"></i>
-                    <input type="file" name="file">
+                    <input type="hidden" name="url" value="{{ recipe.url }}" />
                     <label for="file">Upload your Image of your Delicious Recipe here.</label>
                 </div>
             </div>

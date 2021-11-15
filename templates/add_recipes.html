@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="fas fa-align-left prefix light-blue-text text-darken-4"></i>
-                    <textarea id="recipe_description" name="recipe_description" minlength="5" maxlength="200"
+                    <textarea id="recipe_description" name="recipe_description" minlength="5" maxlength="100"
                         class="materialize-textarea validate" required></textarea>
                     <label for="recipe_description">Recipe Description</label>
                 </div>
@@ -39,15 +39,15 @@
             <!-- Recipe time -->
             <div class="row">
                 <div class="range-field">
-                    <label for="cooking-time">How long does your recipe take?</label>
-                    <input type="range" id="recipe_time" min="5" max="180" />
+                    <label for="recipe_time">How long does your recipe take?</label>
+                    <input type="range" name="recipe_time" id="recipe_time" min="5" max="180" />
                 </div>
             </div>
             <!-- Portions served -->
             <div class="row">
                 <div class="range-field">
                     <label for="portions">How many people can you feed?</label>
-                    <input type="range" id="portions" min="1" max="12" />
+                    <input type="range" name="portions" id="portions" min="1" max="12" />
                 </div>
             </div>
             <!--Recipe Instructions-->
