@@ -196,7 +196,7 @@ def edit_recipe(recipe_id):
             "recipe_instructions": request.form.get("recipe_instructions"),
             "is_vegetarian": is_vegetarian,
             "created_by": session["user"],
-            "url": request.form.get ("url"),
+            "url": request.form.get("url"),
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
         flash("Recipe Successfully Updated")
