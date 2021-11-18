@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container bg-image">
-    <h3 class="center-align">Log in!</h3>
+<div class="container bg-image-login">
+    <h3 class="center-align recipe-text-login">Log in!</h3>
 
     <div class="row">
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('login') }}">
@@ -9,7 +9,7 @@
                 <!--Username field-->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fas fa-user-cog prefix light-blue-text text-darken-4"></i>
+                        <i class="fas fa-user-cog prefix green-icon text-darken-4"></i>
                         <input id="username" name="username" type="text" minlength="5" maxlength="15"
                             pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                         <label for="username">Username</label>
@@ -18,7 +18,7 @@
                 <!--Email field-->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fas fa-envelope prefix light-blue-text text-darken-4"></i>
+                        <i class="fas fa-envelope prefix green-icon text-darken-4"></i>
                         <input id="email" name="email" type="email" minlength="5" maxlength="40" class="validate"
                             required>
                         <label for="email">Email</label>
@@ -27,7 +27,7 @@
                 <!--Password field-->
                 <div class="row">
                     <div class="input-field col s12">
-                        <i class="fas fa-user-lock prefix light-blue-text text-darken-4"></i>
+                        <i class="fas fa-user-lock prefix green-icon text-darken-4"></i>
                         <input id="password" name="password" type="password" minlength="5" maxlength="15"
                             pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                         <label for="password">Password</label>
@@ -35,7 +35,7 @@
                 </div>
                 <!--Login Button-->
                 <div class="row">
-                    <button type="submit" class="col s12 btn-large light-blue darken-4 text-shadow">
+                    <button type="submit" class="col s12 btn-large submit-recipe darken-4 text-shadow">
                         Log in! <i class="fas fa-sign-in-alt"></i>
                     </button>
                 </div>
@@ -45,9 +45,9 @@
 
     <div class="row">
         <div class="col s12">
-            <p class="center-align">
+            <p class="center-align white-text">
                 New Here and want to be apart of our cooking community? <a href="{{ url_for('register') }}"
-                    class="light-blue-text text-darken-4">Register Account</a>
+                    class="recipe-text text-darken-4">Register Account</a>
             </p>
         </div>
     </div>
