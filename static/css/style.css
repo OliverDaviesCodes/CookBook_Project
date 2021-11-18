@@ -93,6 +93,7 @@ ul.right {
     width: 90%;
     background-color: #f2e8e2 !important;
     border-radius: 10px;
+    margin-bottom: 25px;
 }
 
 .search {
@@ -103,6 +104,32 @@ ul.right {
     background-color: #bd5229f0;
 }
 
+/*profile.html*/
+
+.bg-image-profile {
+    background-image: url('/static/media/kitchen-background.jpg');
+    background-size: cover;
+    width: 100%;
+    padding-bottom: 30px;
+    height: 100%;
+    padding-top: 30px;
+}
+
+.recipe-text-profile {
+    color: #607d8b;
+    background-color: #f2e8e2;
+    margin: 0 auto;
+    /* width: 30%; */
+    margin-bottom: 5px;
+    border-radius: 5px;
+    padding: 25px;
+}
+
+.card-panel-profile {
+    padding: 25px;
+    margin: 25px;
+}
+
 /*recipes.html*/
 .image-label {
     margin-top: 10px;
@@ -111,6 +138,7 @@ ul.right {
 .card-panel {
     width: 75%;
     margin: 0 auto;
+    margin-top: 50px;
 }
 
 #kitchen {
@@ -127,7 +155,8 @@ ul.right {
     background-size: cover;
     width: 100%;
     padding-bottom: 30px;
-    height: 80vh;
+    height: 1250px;
+    padding-top: 30px;
 }
 
 .bg-image-edit {
@@ -159,6 +188,23 @@ ul.right {
 }
 
 /*Cards*/
+.show-card-img {
+    height: 300px;
+    width: 100%;
+    margin-top: 5px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.show-card {
+    background-color: #f2e8e2;
+    border-radius: 10px;
+    margin: 15px;
+    width: 100% !important;
+    background-size: cover;
+    padding-bottom: 5px !important;
+}
+
 .category-card {
     background-color: #607d8b;
     border-radius: 10px;
@@ -179,6 +225,9 @@ ul.right {
     display: flex;
     justify-content: space-between;
     height: 100%;
+    padding: 50px;
+    background-color: white;
+    width: 100%;
 }
 
 .card-container {
@@ -214,6 +263,7 @@ ul.right {
     width: 100%;
     margin-top: 5px;
     border-radius: 10px;
+    object-fit: cover;
 }
 
 .card-body {
@@ -241,6 +291,14 @@ ul.right {
 
 .card-description {
     text-decoration: underline;
+}
+
+.card-instructions {
+    text-decoration: underline;
+}
+
+label {
+    font-size: 1rem !important;
 }
 
 /*Qoute*/

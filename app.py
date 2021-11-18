@@ -132,7 +132,7 @@ def profile():
     if is_logged_in():
         # retrieves the session users username from the database
         user = mongo.db.users.find_one({"username": session["user"]})
-        recipes = mongo.db.recipes.find({"created_by": session["user"]})
+        recipes = list(mongo.db.recipes.find({"created_by": session["user"]}))
         return render_template("profile.html", user=user, recipes=recipes)
     return redirect(url_for("login"))
 
@@ -140,7 +140,7 @@ def profile():
 @app.route("/logout")
 def logout():
     """
-     remove user from the session cookies
+    Remove user from the session cookies
     """
     if is_logged_in():
         # remove user from the session cookies
