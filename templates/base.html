@@ -15,6 +15,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Petemoss&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@300&display=swap" rel="stylesheet">
     {% block styles %}
     {% endblock %}
     <title>Just a Taste</title>
@@ -27,7 +30,7 @@
         <nav class="nav-extended text-shadow blue-grey">
             <div class="nav-wrapper">
                 <img src="/static/media/kitchen-logo.png" alt="Image of a logo" class="logo">
-                <a href="{{ url_for('get_recipes') }}" class="brand-logo" id="taste">Just a Taste</a>
+                <a href="{{ url_for('get_recipes') }}" class="brand-logo font-text" id="taste">Just a Taste</a>
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
@@ -89,7 +92,7 @@
     <!-- Footer-->
     <footer class="container footer blue-grey" id="footer">
         <div class="social">
-            <h5 class="social cream-text text-shadow"><u>Get Social</u></h5>
+
             <ul class="mr-4 cream-text">
                 <li class="li-inline social-link">
                     <a href="https://www.facebook.com/" target="_blank" aria-label="Facebook"><i

@@ -33,7 +33,7 @@
             <div class="card col s12 m4" style="width: 20rem;">
                 <img src="{{ recipe.url }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">{{ recipe.recipe_name }}
+                    <h5 class="card-title font-text">{{ recipe.recipe_name }}
                         {% if recipe.is_vegetarian == "on" %}
                         <i class="fas fa-seedling text-lighten-2 tooltipped" data-position="bottom"
                             data-tooltip="Vegetarian!"></i>
@@ -49,10 +49,10 @@
                         us!</a>
 
                     {% if session.user|lower == recipe.created_by|lower %}
-                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="orange accent-4 btn-small"><i
-                            class="fas fa-trash-alt text-shadow"></i></a>
+                    <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
+                        class="orange icon-hidden accent-4 btn-small"><i class="fas fa-trash-alt text-shadow"></i></a>
                     <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}"
-                        class="grey-blue accent-4 btn-small text-shadow">Edit</a>
+                        class="grey-blue accent-4 icon-hidden btn-small text-shadow">Edit</a>
                     {% endif %}
 
                 </div>
