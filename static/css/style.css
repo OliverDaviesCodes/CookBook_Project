@@ -131,10 +131,21 @@ ul.right {
     color: #607d8b;
     background-color: #f2e8e2;
     margin: 0 auto;
-    width: 40%;
+    width: 50%;
     margin-bottom: 5px;
     border-radius: 10px;
     padding: 25px;
+}
+
+.recipe-text-small {
+    color: #607d8b;
+    background-color: #f2e8e2;
+    margin: 0 auto;
+    width: 40%;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 5px;
+    font-size: 18px;
 }
 
 /*show_recipe.html.html*/
@@ -312,7 +323,7 @@ ul.right {
     justify-content: space-between;
     flex-wrap: wrap;
     margin: 0 auto;
-    padding: 50px;
+    padding: 10px;
 }
 
 .card {
@@ -374,6 +385,7 @@ label {
     font-size: 1rem !important;
 }
 
+/*media queries*/
 @media all and (max-width: 695px) {
     .card {
         margin: 10px auto;
@@ -401,6 +413,33 @@ label {
     .card-container {
         padding: 0px;
     }
+
+    #taste {
+        display: none;
+    }
+
+    .recipe-text {
+        font-size: 28px;
+    }
+
+    .recipe-text-login {
+        font-size: 28px;
+    }
+
+    .recipe-text-profile {
+        font-size: 28px;
+    }
+}
+
+@media all and (max-width: 440px) {
+    .image-label {
+        display: none;
+    }
+
+    .recipe-text-login {
+        font-size: 22px;
+    }
+
 }
 
 /*Qoute*/

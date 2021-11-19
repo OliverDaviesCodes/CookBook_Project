@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="container bg-image-login">
-    <h3 class="recipe-text center-align">Register with us!</h3>
+    <h3 class="recipe-text-login center-align">Register with us!</h3>
 
     <div class="row">
         <form class="col s12 m8 offset-m2" method="POST" action="{{ url_for('register') }}">
@@ -47,7 +47,7 @@
         <div class="col s12">
             <p class="center-align white-text">
                 Already Registered as one of our Cooks? <a href="{{ url_for('login') }}"
-                    class="recipe-text text-darken-4">Log in here to get Cooking.</a>
+                    class="recipe-text-small text-darken-4">Log in here to get Cooking.</a>
             </p>
         </div>
     </div>
