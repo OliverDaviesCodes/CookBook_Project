@@ -39,7 +39,7 @@
                             data-tooltip="Vegetarian!"></i>
                         {% endif %}
                     </h5>
-                    <label for="card-description-{{ loop.index }}" class="card-descriptions">Recipe Description:</label>
+                    <span class="card-descriptions">Recipe Description:</span>
                     <span>{{ recipe.recipe_time }} <i class="far fa-clock"></i></span> <span>{{ recipe.portions }} <i
                             class="fas fa-child"></i></span>
                     <p class="card-text" id="card-description-{{ loop.index }}">{{ recipe.recipe_description }}</p>
