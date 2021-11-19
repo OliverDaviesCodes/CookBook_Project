@@ -334,7 +334,6 @@ ul.right {
     padding-bottom: 5px !important;
 }
 
-
 .card-img-top {
     height: 225px;
     width: 100%;
@@ -373,6 +372,7 @@ ul.right {
 
 .card-descriptions {
     text-decoration: underline;
+    font-size: 14px !important;
 }
 
 .card-instructions {
@@ -385,13 +385,18 @@ label {
 
 /*media queries*/
 @media all and (max-width: 695px) {
+    #profile-card {
+        height: 475px !important;
+    }
+
     .card {
         margin: 10px auto;
         left: auto;
         right: auto;
-        width: 250px;
+        width: 250px !important;
         height: 400px;
     }
+
 
     .card-img-top {
         width: 100%;
@@ -427,6 +432,7 @@ label {
     .recipe-text-profile {
         font-size: 28px;
     }
+
 }
 
 @media all and (max-width: 440px) {
@@ -438,6 +444,21 @@ label {
         font-size: 22px;
     }
 
+    .search {
+        font-size: 12px;
+    }
+
+    .fa-search {
+        display: none;
+    }
+
+    .fa-plus-square {
+        display: none;
+    }
+
+    .submit-recipe {
+        font-size: 12px;
+    }
 }
 
 /*Qoute*/
