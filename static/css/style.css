@@ -26,7 +26,6 @@ body {
 }
 
 main.container {
-    margin: none;
     max-width: none;
     background-color: #607d8b;
     width: 100%;
@@ -65,7 +64,6 @@ ul.right {
 .logo {
     height: 75px;
     width: 100px;
-    size: 25px;
 }
 
 #taste {
@@ -373,7 +371,7 @@ ul.right {
     font-family: 'Montagu Slab', serif !important;
 }
 
-.card-description {
+.card-descriptions {
     text-decoration: underline;
 }
 

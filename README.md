@@ -50,9 +50,6 @@ The website is fully interactive, built with mobile capability design in mind, a
     - [**Codes**](#codes)
     - [**Acknowledgements**](#acknowledgements)
 
-8. [**Disclaimer**](#disclaimer)
-
-
 
 ## UX
 - The webste features a modern, interactive, and easy-to-use design for individuals to easily navigate and enjoy their time during their visit.
@@ -104,7 +101,7 @@ The website is fully interactive, built with mobile capability design in mind, a
 
 ### Typography
 
-There are three Google fonts used throught the website. [Petemoss](https://fonts.google.com/specimen/Petemoss?preview.size=24#standard-styles) is used for qoute, [Montagu Slab](https://fonts.google.com/specimen/Montagu+Slab) used for all titles.
+There are two Google fonts used throught the website. [Petemoss](https://fonts.google.com/specimen/Petemoss?preview.size=24#standard-styles) is used for qoute, [Montagu Slab](https://fonts.google.com/specimen/Montagu+Slab) used for all titles.
 
 
 
@@ -115,14 +112,12 @@ Other images loaded into the website by the user are random and can be selected 
 
 ### Wireframes
 
-- [Homepage/recipes]()
-- [Add recipe Page]()
-- [Register])
-- [Login])
-- [Profile Page with Recipes]()
-- [Admin Profile Page]()
-- [Add Recipe/Edit Recipe]()
-- [Add/Edit Category]()
+- [Homepage/recipes](/workspace/CookBook_Project/static/uploads/recipe-home.png)
+- [Add recipe Page](/workspace/CookBook_Project/static/uploads/recipe-add.png)
+- [Register](/workspace/CookBook_Project/static/uploads/recipe-login.png)
+- [Login](/workspace/CookBook_Project/static/uploads/recipe-login.png)
+- [Profile Page with Recipes](/workspace/CookBook_Project/static/uploads/recipe-profile.png)
+- [Add Recipe/Edit Recipe](/workspace/CookBook_Project/static/uploads/recipe-add.png)
 
 
 ## Features
@@ -145,89 +140,61 @@ Other images loaded into the website by the user are random and can be selected 
 - Using CSS and Javascript, recipe cards and images are presented to the user in an structured layout as the user scrolls through the page, providing a unique experience.
 - Each recipe on homepage displays Title, Description, and portion and time for the recipe, and each recipe has a button to view the instructions and full recipe on a seperate page.
 - For recipe users, a Delete and Edit button is displayed on their recipe for users to easily manage their recipes from Homepage on tablet sizes and up to full screen sizes.
-- For Admin user all the posts feature a Delete and Edit button, allowing Admin user to easily Edit or Delete Unwanted user posts directly from the Homepage.
+
 
  **Register Page**
-- Features a clean registration form for user to signup for the blog.
-- Each section of form input area features a placeholder text.
-- Underneath the form inputs, there is a placeholder text explaining the required data for input, helping users to easily match the requested format.
+- Features a clean registration form for user to signup for the website.
+- Each section of form input area features a label.
 - Password input field features a password match validator and gives feedback to user if their passwords match. 
+- Email input field features an email match validator and gives feedback on if the emails match
 
  **Login Page**
-- Features a clean login form for users to login to their blog.
-- Each section of form input area features a placeholder text.
-- Underneath the form inputs, there is a placeholder text explaining the required data for input, helping users to easily match the requested format.
+- Features a clean login form for users to login to their profile.
+- Each section of form input area features a label.
 - Upon succcessful submission, user is redirected to their own profile page.
+- there are validors on both the email, name and password for securability.
 
  **Profile Page**
 - Features a clean layout.
 - Shows a greeting message to the User upon successful login.
-- Features a section showing all the posts by the user, allowing them to edit or delete their posts.
-- Features a add post button allowing users to easily reach to add post page from their profile.
-- If user has no posts, then a message is presented to the user, asking them if they would like to add a new post.
-- At the bottom of the page there is a "Delete Account" button featuring a modal for user confirmation.
+- Features a section showing all the recipes by the user, allowing them to edit or delete their posts.
+- If user has no posts, then a message is presented to the user.
 
- **Add Post Page**
+ **Add Recipe Page**
 - Stricted only for registered users.
 - Page features a clean form for users to use, outlining all the required information in the form.
-- Form features an image preview section allowing users to see their post images before uploading.
+- Form features an image selection section allowing users to upload their recipe images.
 - Using file upload, and Cloudinary service, form allows users to easily upload their image to the cloud, and eliminates the hassle of looking for image urls.
 - File upload input allows user to only upload image files such as jpeg, jpg, and png. Any other file extensions are restricted.
-- After submission, form checks if the current Post title exits in the database, restricting users from adding duplicate posts.
-- Upon successful post, user get redirected to the homepage and greeted with a success message.
+- Upon successful submission, user get redirected to the homepage and greeted with a success message.
 
-**Edit Post Page**
-- Stricted only for post authors.
-- Page features the same form and features as the Add Post page.
-- Each section of the form is pre-filled with the data they provided when they submited the form, allowing users to easily edit the post information.
-- After submission, form checks if the current Post title exits in the database, restricting users from adding duplicate posts.
-- Upon successful post, user get redirected to the homepage and greeted with a success message.
+**Edit Recipe Page**
+- Stricted only for recipe users.
+- Page features the same form and features as the Add recipe page.
+- Each section of the form is pre-filled with the data they provided when they submited the form, allowing users to easily edit the recipe information.
+- Upon successful submission, user get redirected to the homepage and greeted with a success message.
 
-**Blog Post Page**
+**Show Recipe Page**
 - Allowed for visitors and registered users to see.
-- At the top of the page, post title presented.
-- Underneath the title post information such as Author, Post Date, Category, and Address information is presented to the users. For post authors and admin an Edit and Delete button is presented allowing author or Admin user to easily manage the post.
-- Underneath the info tags Post image is shown to the user.
-- Underneath the post image, post content is presented.
-- Underneath the post content, a link for the place's website is present, which opens the website in a new tab for users to get more information about the place.
+- At the top of the page, Recipe title and image is presented.
+- Underneath the title recipe information such as desctiption, instructions, Category, portion size and time is presented to the users. For recipe authors and admin an Edit and Delete button is presented allowing author or Admin user to easily manage the recipe.
 
-**Contact Page**
-- Allowed for all visitors and users of the blog.
-- Using Flask Mail, users are able to contact the Blog Admin via the form.
-- Upon successfull submission users are greeted with a success message, and email is sent for Admin user to see.
-
-**Admin Dashboard**
+**Add/manage Categories**
 - Stricted for Admin use only, and features a variety options for the Admin user to easily manage and be in total control.
-- On top of the page, info cards are presented for the admin user. Each card shows a real-time information about total number of users, total number of posts, and total number of categories.
-- Underneath the blog info cards, a responsive table of registered user list is presented along with all the information users provided. Next to each user there is a call to action button for user deletion, allowing admin user to delete any unwanted users. Admin user deletion is restricted from the table.
-- Underneath the Registered users table, All the categories are listed for Admin user to manage. Along with a Add Category button for Admin user to easily add new categories if needed.
-- Underneath the Categories section, Recent posts section is presented to the Admin user showing all the current posts on the page showing their titles and images. Each post card features a Edit and Delete button, allowing Admin user to easily manage current posts on the blog.
-
-**Add Category**
-- Stricted for Admin use only.
-- Page features a single line form allowing Admin user to add new categories.
-- After submission Add category function checks if Category already exits, if it does, it shows a message to Admin user that category already exits.
-
-**Edit Category**
-- Stricted for Admin use only.
-- Page features a single line form allowing Admin user to edit the selected category.
-- After submission Edit Category function checks if Category already exits, if it does, it shows a message to Admin user that category already exits.
-
-**404 Error Page**
-- Page features custom error message with a button that takes user back to the homepage
-
-**500 Error Page**
-- Page features custom error message with a button that takes user back to the homepage
+- On top of the page, category cards are presented for the admin user. Each card shows a category that users can select for there recipes
+- the admin can easily access and add a new category through the add category button displayed at the top of the page.
+- Admins can also delete and edit categories through the buttons presented beneath each category displayed
 
 
 ### Features Left to Implement
 
-- Maps section showing each place on a map.
-- Registration confirmation allowing each new user to verify their account before adding new posts.
-- Comments functionality allowing users to comment on the posts.
-- User profile picture functionality, allowing users to add profile pictures, and show them next to their posts, and comments.
-- Email notification functionality for Admin user to be alerted when a new post is added to the blog.
-- Functionality for automatically assigning new tag colors for new categories. 
+- Pagenation acroos websites for user experience and anti-cluttering.
+- Registration confirmation allowing each new user to verify their account before adding new recipes.
+- Comments functionality allowing users to comment on the recipes.
+- Rating functionality allowing users to rate different recipes out of 5 stars.
+- More user profile functionality with access to changing email and even display name.
+- Email notification functionality for Admin user to be alerted when a new recipe is added to the website.
+- More Admin functionality letting the admin remove users and posts as necessary
 - Extra layer of security for server-side file validation before uploading images.
 
 ## Technologies Used
@@ -237,13 +204,15 @@ Other images loaded into the website by the user are random and can be selected 
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)
 - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+- [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+- [Jinga-Templating-language](https://jinja.palletsprojects.com/en/3.0.x/)
 - [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
 
 
 ### Frameworks, Libraries, and Programs Used
 
-- [Visiual Studio Code ](https://code.visualstudio.com)
-    - **Vscode** Is the code editor used to develop, commit & push this project to Github.
+- [Gitpod](https://www.gitpod.io/)
+    - **Gitpod** Is the code editor used to develop & push this project to Github.
 - [GitHub](https://github.com/)
     - **Github** is used for:
     1. Tracking the project, and for version control.
@@ -255,15 +224,12 @@ Other images loaded into the website by the user are random and can be selected 
 - [MongoDB](https://www.mongodb.com/)
      - **MongoDB**  Source-available cross-platform document-oriented database program.
 - [Heroku](https://www.heroku.com/)
-     - **Heroku**  A platform as a service (PaaS) used for deploying the project.
-- [WOW.js](https://wowjs.uk)
-    - **WOW.js**  a JavaScript plugin that reveals animations when you scroll.
-- [Animate.css](https://animate.style)
-    - **Animate.css**  a cross-browser library of CSS animations.
-- [Adobe Fonts](https://fonts.adobe.com/)
-    - **Adobe Fonts**  for importing typography.
+     - **Heroku**  A platform as a service used for deploying the project.
+- [googleFonts](https://fonts.google.com/)
+    - **Google Fonts**  for importing typography.
 - [Font Awesome](https://fontawesome.com/)
    - **Font Awesome** for adding a icons.
+   
 - [W3C Markup Validator](https://validator.w3.org/)
    - **W3C Markup Validator** to check validity of HTML code.
 - [PEP8 Online](http://www.pep8online.com/)
@@ -280,61 +246,55 @@ Other images loaded into the website by the user are random and can be selected 
 
 ## Testing
 
-Testing information can be found in seperate [TESTING.md](https://github.com/yigitaksoy/Wonderdam/blob/master/documentation/TESTING.md) file.
+### Testing User Stories from UX Section
+#### First time visitor goals
+- **I want to understand the main purpose of the website.**
+    - When users enter the website all the recipes are presented for the visitors, which gives them the option to scroll through them or look at each recipe individually.
+- **I want to easily navigate through the website.**
+    - At the top of the page a sticky navigation bar is present, displaying all the links for new users to easily navigate through the website.
+- **I want to find out how I can register to the website, and upload a recipe.**
+    - On the navigation bar, right next to the Home link, Register link is presented for new users which leads them to the registration page.
+- **I want to find out how I can search for recipes.**
+    - On the home page, underneath the main image, there is a search bar present for users to easily search for recipes.
+
+#### User goals
+- **As a user i want to find out how to log into my profile**
+    - On the navigation bar there is an accessible login button so user can be directed to login to there accounts.
+- **I want to find out how I can add a new recipes.**
+    - In the navigation bar once logged in there is an easily accessible add recipe button which directs the user to the add recipe page displaying steps by step info to add new recipes to the website.
+- **I want to find out how I can edit my recipes.**
+    - For users on the home page edit functionality is present on tablet sizes and larger and on the users profile editing is always present for the users recipes.
+- **I want to find out how I can delete my recipes.**
+    - For users on the home page delete functionality is present on tablet sizes and larger and on the users profile deleting is always present for the users recipes.
+- **I want to find be able to see all my recipes**
+    - On the users profile all of the users recipes are displayed for easy access and availability to the user to use crud functionality.
+
+#### Admin User Goals
+
+- **I want to be able to add new recipes**
+    - In the navigation bar once logged in there is an easily accessible add recipe button which directs the user to the add recipe page displaying steps by step info to add new recipes to the website.
+- **I want to be able to manage categories for users to upload there recipes into**
+    - AN exclusive admin feature is being able to access the mange categories page which lets them add delete and update categories where neccessary around the website.
+- **I want to be able to edit and delete recipes** 
+    - The admin can access edit and delete there recipes fromeither there profile page or the home page on tablet sizes and larger.
+
 
 ## Database
 
 - [MongoDB](https://www.mongodb.com) was used to create a database for this application.
 
-<img src="https://github.com/yigitaksoy/Wonderdam/blob/master/documentation/images/Database.png">
-
-### Users collection
-
-|Key|Type|
-|---|----|
-|_id|ObjectId|
-|name|String|
-|last_name|String|
-|username|String|
-|password|String|
-|email|String|
-|registered|datetime|
-
-### Posts Collection
-
-|Key|Type|
-|---|----|
-|_id|ObjectId|
-|post_title|String|
-|post_category|String|
-|post_content|String|
-|post_image|String|
-|post_address|String|
-|website|String|
-|author|String|
-|post_date|datetime|
-
-### Categories Collection
-
-|Key|Type|
-|---|----|
-|_id|ObjectId|
-|category_name|String|
 
 ## Deployment
 
-- To view the deployed version of [Wonderdam](https://wonderdam.herokuapp.com) Please take the following steps:
+- To view the deployed version of [Just_a-Taste](https://cookbook-manager-project.herokuapp.com/) Please take the following steps:
 
 ### Github
 
 - Add this repository to your local workspace:
-    - Click on the [Wonderdam repository on GitHub](https://github.com/yigitaksoy/Wonderdam) link.
+    - Click on the [Cookbook_Project repository on GitHub](https://github.com/OliverDaviesCodes/CookBook_Project) link.
     - Click on the **Code** button, and copy the URL.
     - Go into your local workspace, and open up a new terminal.
-    - Type `git clone ` and paste the URL you copied from GitHub, and press enter. It should look like this:
-```console
-git clone https://github.com/*username*/*repository*
-```
+    - Type `git clone ` and paste the URL you copied from GitHub, and press enter. 
 The process of cloning is now completed. For further information on cloning,
  visit [How to clone from GitHub](https://help.github.com/en/articles/cloning-a-repository).
 ### MongoDB Configuration
@@ -344,19 +304,7 @@ The process of cloning is now completed. For further information on cloning,
 - Select `Connect to your application`
 - Select `Python` as `Driver` and choose `Version 3.6 or later`
 - Create a new `env.py` file in your project, paste and save the connection link and variables.
- ```console
-import os
-
-os.environ.setdefault("IP", "0.0.0.0")
-os.environ.setdefault("PORT", "5000")
-os.environ.setdefault("SECRET_KEY", "<secret_key>")
-os.environ.setdefault("MONGO_URI", "mongodb+srv://<username>:<password>@myfirstcluster.8s17w.mongodb.net/<db_name>?retryWrites=true&w=majority")
-os.environ.setdefault("MONGO_DBNAME", "<db_name>")
-````
 - Create an instance of PyMongo
-```console
-mongo = PyMongo(app)
-```
 
 ### Heroku Deployment
 - Before deploying your project create a requirements.txt file by running the following command in the CLI:
@@ -383,38 +331,28 @@ echo web: python run.py > Procfile
 
 ### Content
 
-- The text content on the website were adapted from each establishments website, aloing with [Amsterdam Magazine](https://www.amsterdammagazine.com/nl/) and [I amsterdam](https://www.iamsterdam.com/en/blog)
+- The text content on the website was adapted by me other than some of the recipes which i pulled from google and the qouted stated below.
+    - [Oatmeal](https://fitfoodiefinds.com/the-50-best-oatmeal-recipes-on-the-planet/)
+    - [Pancakes](https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/)
+    - [Chocolate Cake](https://iambaker.net/cake-recipes/)
+    - [Steak](https://natashaskitchen.com/pan-seared-steak/)
+    - [Qooute](https://littleraesbakery.com/2020/02/19/12-quotes-about-cooking-from-the-heart/)
+    - [Roast Lamb](https://www.delish.com/cooking/recipe-ideas/recipes/a56354/best-roast-lamb-recipe/)
+    - [fruit salad](https://www.cookingclassy.com/honey-lime-rainbow-fruit-salad/)
+    - [roast Chicken](https://cafedelites.com/garlic-herb-butter-roast-chicken/)
+    - [Apple Pie](https://www.tasteofhome.com/recipes/apple-pie/)
 
 ### Media
-- The image content on the website were taken from each establishments own website, and social media accounts. 
-
-### Codes
-
- - Code to fix mixed content issue was taken from [Stackoverflow](https://stackoverflow.com/questions/35178135/how-to-fix-insecure-content-was-loaded-over-https-but-requested-an-insecure-re/35178323)
- - Code for line-clamp was taken from [CSS Tricks](https://css-tricks.com/almanac/properties/l/line-clamp/)
- - Code to show image previews on Add/Edit Posts are taken from [Learn Code Web](https://learncodeweb.com/snippets/browse-button-in-bootstrap-4-with-select-image-preview/)
- - Code for user password input validation on Register form was taken from [Stackoverflow](https://stackoverflow.com/questions/21727317/how-to-check-confirm-password-field-in-form-without-reloading-page)
- - Code for HTML email input pattern attribute was taken from [Stackoverflow](https://stackoverflow.com/questions/5601647/html5-email-input-pattern-attribute)
- - Code for Setting up Flask Mail was taken from Karina's Flask Mail setup instructions on [Slack](https://slack-files.com/T0L30B202-F01KX8QUEJF-6a89867a18).
- - Code used for setting up Flask Pagination were taken from [Pythonhosted](https://pythonhosted.org/Flask-paginate/), and [Mozillag](https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9)
- - Code for styling and structuring the forms were taken from [Colorlib](https://colorlib.com/etc/regform/colorlib-regform-8/)
- - Code for fitting bootstrap card images evenly was taken from [Stackoverflow](https://stackoverflow.com/questions/37287153/how-to-get-images-in-bootstraps-card-to-be-the-same-height-width/53252725)
- - Code for live character count on Add/Edit Post forms were taken from [Codexworld](https://www.codexworld.com/live-character-counter-javascript/)
- - Code for handeling errors on Flask was taken from [Palletsprojects](https://flask.palletsprojects.com/en/1.1.x/patterns/errorpages/)
+- The image content on the website were taken from Unsplash which is an open source free to use image gallery.
+- [Unsplash](https://unsplash.com/s/photos/kitchen)
 
 
 ## Acknowledgements
 
+- Thanks to my Mentor Reuben for supporting me through-out this entire process and shared his incredible knowledge and evelopment skills to really help me learn to implement all the necessary code.
 
 ## Disclaimer
 - All content on the website, including images and text, are used for educational purposes only.
 
-## Miscellaneous
-
-- During the early development stages of the project, delete modal title was updated on User Profile page, but due to long hours of coding this commit was mis-stated as "Update delete modal title on post page" which was meant for Profile Page. [See commit](https://github.com/yigitaksoy/Wonderdam/commit/a0547907ea744e8d0e4447f9a7611a32a2c425dd)
-
-- During the early development stages of this project, Admin user functionality was borrowed from a fellow student at Code Institute [Franciskadtt](https://github.com/Franciskadtt/the-growth-club) along with 3 lines of comments as a placeholder, but later on this function was updated, and implementations were left out. [See commit](https://github.com/yigitaksoy/Wonderdam/commit/859b95a2ee8cf87e2294e1eb0804667ca7892b80)
-
-- During the final development stages of the project, `datetime` format for `post_date` value was updated. During the committing process IDE gave an error related to an extension called [Git Lens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens), and due this malfunctioning 2 seperate commits with the same name, but with different changes were added, which was meant to be a single commit. [See commit-1](https://github.com/yigitaksoy/Wonderdam/commit/3e7535aaa859ca28c24152ceda7d921377d16575), [See commit-2](https://github.com/yigitaksoy/Wonderdam/commit/475f63afa671bf8d88851cd91c343b26a0b9cb9e)
 
   #### __back to [Contents Table](#contents-table)__ 
