@@ -104,32 +104,25 @@ The website is fully interactive, built with mobile capability design in mind, a
 
 ### Typography
 
-There are three Adobe fonts used throught the website. [P22 Pooper Black](https://fonts.adobe.com/fonts/p22-pooper-black) is used for logo, [Antique Olive Nord](https://fonts.adobe.com/fonts/antique-olive) used for all titles and post "Read More" links. [Paralucent](https://fonts.adobe.com/fonts/paralucent) was used on all the texts to give the website a modern and minimalistic feel.
+There are three Google fonts used throught the website. [Petemoss](https://fonts.google.com/specimen/Petemoss?preview.size=24#standard-styles) is used for qoute, [Montagu Slab](https://fonts.google.com/specimen/Montagu+Slab) used for all titles.
 
 
 
 ### Imagery
 
-- Images on the website were chosen to set the sense of quality, and taste of the blog, and to make sure users have a good experience during their visit.
+- Images on the website were chosen to set the sense of quality, and taste of the website, and to make sure users have a good experience during their visit. 
+Other images loaded into the website by the user are random and can be selected by each individual.
 
 ### Wireframes
 
-- [Homepage](https://github.com/yigitaksoy/Wonderdam/blob/master/documentation/wireframes/Homepage.png)
-- [Blog Post Page](https://github.com/yigitaksoy/Wonderdam/blob/master/documentation/wireframes/Blog%20Post%20Page.png)
-- [Register](https://github.com/yigitaksoy/Wonderdam/blob/master/documentation/wireframes/Register.png)
-- [Login](https://github.com/yigitaksoy/Wonderdam/blob/master/documentation/wireframes/Login.png)
-- [Contact](https://github.com/yigitaksoy/Wonderdam/blob/master/documentation/wireframes/Contact.png)
-- [Profile Page for New User](https://github.com/yigitaksoy/Wonderdam/blob/master/documentation/wireframes/Profile%20New%20User.png)
-- [Profile Page without Posts](https://github.com/yigitaksoy/Wonderdam/blob/master/documentation/wireframes/Profile%20user%20without%20posts.png)
-- [Profile Page with Posts](https://github.com/yigitaksoy/Wonderdam/blob/master/documentation/wireframes/Profile%20with%20posts.png)
-- [Admin Profile Page](https://github.com/yigitaksoy/Wonderdam/blob/master/documentation/wireframes/Admin%20Profile%20Page.png)
-- [Add Post](https://github.com/yigitaksoy/Wonderdam/blob/master/documentation/wireframes/Add%20Post.png)
-- [Edit Post](https://github.com/yigitaksoy/Wonderdam/blob/master/documentation/wireframes/Edit%20Post.png)
-- [Add Category](https://github.com/yigitaksoy/Wonderdam/blob/master/documentation/wireframes/Add%20Category.png)
-- [Edit Category](https://github.com/yigitaksoy/Wonderdam/blob/master/documentation/wireframes/Edit%20Category.png)
-- [Admin Dashboard](https://github.com/yigitaksoy/Wonderdam/blob/master/documentation/wireframes/Admin%20Dashboard.png)
-- [Error 404](https://github.com/yigitaksoy/Wonderdam/blob/master/documentation/wireframes/Error%20404.png)
-- [Error 500](https://github.com/yigitaksoy/Wonderdam/blob/master/documentation/wireframes/Error%20500.png)
+- [Homepage/recipes]()
+- [Add recipe Page]()
+- [Register])
+- [Login])
+- [Profile Page with Recipes]()
+- [Admin Profile Page]()
+- [Add Recipe/Edit Recipe]()
+- [Add/Edit Category]()
 
 
 ## Features
@@ -141,18 +134,17 @@ There are three Adobe fonts used throught the website. [P22 Pooper Black](https:
 
  **Navbar**
  - Fixed on top of the page on all device sizes.
- - Shown as a collapsible navbar with a hamburger button for triger on Mobile devices and Tables.
- - Features a search bar allowing user to make searches throughout the website. Search function allows users to search for Posts by Author and title, and allows user to search posts by category.
- - Features 3 different layouts, for guest users Home, Login, Register and Contact links are present.
- - For Registered users, Home, Profile, Add Post, Logout and Contact links are Present.
- - For Admin user All the links are present along with a link for Admin Dashboard.
+ - Shown as a collapsible navbar with a hamburger button for trigger on Mobile devices and Tables.
+ - Features a search bar allowing user to make searches throughout the website. Search function allows users to search for recipes, and allows user to search recipes by category.
+ - Features 3 different layouts, for guest users Home, Login and Register are present.
+ - For Registered users, Home, Profile, Add Recipe and Logout  are Present.
+ - For Admin user All the links are present along with a link for Admin Categories.
 
- **Homepage**
+ **Homepage/ Recipes**
 - Features an interactive, and modern design.
-- Using Javascript animations, Post images, and Titles are seamlessly presented to the user in an orderly fashion as user scrolls through the page, providing a unique experience.
-- Features Pagination to show only 5 posts per page for a clean UX.
-- Each post on homepage displays Author, Post date, and Category information, and each Category color is given a unique color using Jquery.
-- For post authors, a Delete and Edit button is displayed on their post for users to easily manage their posts from Homepage.
+- Using CSS and Javascript, recipe cards and images are presented to the user in an structured layout as the user scrolls through the page, providing a unique experience.
+- Each recipe on homepage displays Title, Description, and portion and time for the recipe, and each recipe has a button to view the instructions and full recipe on a seperate page.
+- For recipe users, a Delete and Edit button is displayed on their recipe for users to easily manage their recipes from Homepage on tablet sizes and up to full screen sizes.
 - For Admin user all the posts feature a Delete and Edit button, allowing Admin user to easily Edit or Delete Unwanted user posts directly from the Homepage.
 
  **Register Page**
